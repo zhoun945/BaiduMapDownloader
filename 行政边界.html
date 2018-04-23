@@ -67,6 +67,7 @@
         var ply = new BMap.Polygon(rs.boundaries[i], {strokeWeight: 2, strokeColor: "#ff0000"}); //建立多边形覆盖物
         map.addOverlay(ply);  //添加覆盖物
         pointArray = pointArray.concat(ply.getPath());
+		console.info(rs.boundaries[i]);
       }
       var pathStr = "";
       var pathMc = "";
@@ -87,7 +88,7 @@
       var str = "经纬度:左下角,右上角：" + sw.lng + "," + sw.lat + ";" + ne.lng + "," + ne.lat
           + "<br/>墨卡托坐标:左下角,右上角：" + swMc.x + "," + swMc.y + ";" + neMc.x + "," + neMc.y;
       $('#result').html(str);
-      console.log(bounds);
+      //console.log(bounds);
       map.setViewport(pointArray);    //调整视野
     });
   }
